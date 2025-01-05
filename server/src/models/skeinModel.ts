@@ -22,7 +22,8 @@ interface IMaterial {
   percent: number;
 }
 export interface ISkein {
-  color: IColor;
+  color: string;
+  brandColorName?: string;
   description?: string;
   brand?: string;
   dimensions?: IDimensions;
@@ -36,14 +37,6 @@ const dimensionSchema = new Schema<IDimensions>({
   weightInGrams: { type: Number, required: false },
   sizeInYards: { type: Number, required: false },
   sizeInMeteres: { type: Number, required: false },
-});
-
-const colorSchema = new Schema<IColor>({
-  brandColorName: { type: String, required: false },
-  color: {
-    type: String,
-    required: [true, 'Color is required.'],
-  },
 });
 
 const weightSchema = new Schema<IWeight>({
@@ -70,13 +63,8 @@ const materialSchema = new Schema<IMaterial>({
 });
 
 const skeinSchema = new Schema<ISkein>({
-  color: {
-    type: colorSchema,
-    required: [
-      true,
-      'Color is required: { brandColorName: { type: String, required: false },color: {type: String, required: true} ',
-    ],
-  },
+  color: { type: String, required: [true, 'colorDescription is required.'] },
+  brandColorName: { type: String, required: false },
   description: { type: String, required: false },
   brand: { type: String, required: false },
   dimensions: { type: dimensionSchema, required: false },

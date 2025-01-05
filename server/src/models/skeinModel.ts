@@ -21,7 +21,7 @@ interface IMaterial {
   material: string;
   percent: number;
 }
-interface ISkein {
+export interface ISkein {
   color: IColor;
   description?: string;
   brand?: string;
@@ -85,5 +85,4 @@ const skeinSchema = new Schema<ISkein>({
   image: { type: String, required: false },
 });
 
-const Skein = model<ISkein>('Skein', skeinSchema);
-export default Skein;
+export const Skein = model<ISkein>('Skein', skeinSchema);

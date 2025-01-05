@@ -7,11 +7,10 @@ Small WebApp to store your chrochet collections! Keep track of your skeins, tool
 Backend:
 
 - Node.js and TypeScript
-- Testing with Vitest
 
 Frontend:
 
-- React and TypeScript
+- React and TypeScript (with Vite)
 
 DB:
 

@@ -7,17 +7,7 @@ Documentation can be found [here](https://github.com/klmork/CrochetApp/tree/main
 
 ### The Stack
 
-Backend:
-
-- Express with TypeScript
-
-Frontend:
-
-- React with TypeScript (Vite project)
-
-DB:
-
-- MongoDB
+MERN stack with TypeScript (MongoDB, Express, React, Node.js)
 
 ### Developing
 

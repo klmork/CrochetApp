@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Mount Routers
 app.all('/message', (req, res, next) => {
-  res.send('Hello World');
+  res.json({ message: 'Hello from server!' });
 });
 app.all('*', (req, res, next) => {
   res.status(404).json({ status: 'fail', message: `Can't find ${req.url}` });

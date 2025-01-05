@@ -6,12 +6,35 @@ Small WebApp to store your chrochet collections! Keep track of your skeins, tool
 
 Backend:
 
-- Node.js and TypeScript
+- Express with TypeScript
 
 Frontend:
 
-- React and TypeScript (with Vite)
+- React with TypeScript (Vite project)
 
 DB:
 
 - MongoDB
+
+### Developing
+
+To run the app while in development:
+
+1. Start the server
+
+   ```
+   cd server
+   npm i
+   npm run dev
+   ```
+
+   
+2. Start the client
+
+   ```
+   cd client
+   npm i
+   npm run dev
+   ```
+
+View the page at http://localhost:5173/ (or whatever is displayed in your terminal for the client-side)

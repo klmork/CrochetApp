@@ -4,7 +4,15 @@ import tseslint from 'typescript-eslint';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { files: ['src/**/*.{js,mjs,cjs,ts}'] },
+  {
+    files: ['src/**/*.{js,mjs,cjs,ts}'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: 'req|res|next|val' },
+      ],
+    },
+  },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

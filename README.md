@@ -2,6 +2,9 @@
 
 Small WebApp to store your chrochet collections! Keep track of your skeins, tools, projects, and more.
 
+### API Docs
+Documentation can be found [here](https://github.com/klmork/CrochetApp/tree/main/server#api-routes).
+
 ### The Stack
 
 Backend:

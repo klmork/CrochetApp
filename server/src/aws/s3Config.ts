@@ -9,7 +9,7 @@ const s3Configuration: S3ClientConfig = {
   },
   region: 'us-east-1',
 };
-console.log('s3Configuration:', s3Configuration);
+
 const s3Client = new S3Client(s3Configuration);
 
 export default s3Client;

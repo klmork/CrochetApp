@@ -6,7 +6,6 @@ export const getSignedUrlFromS3 = async (
   bucketName: string,
   key: string,
 ): Promise<string> => {
-  console.log('bucketName:', bucketName);
   const command = new GetObjectCommand({ Bucket: bucketName, Key: key });
   const url = await getSignedUrl(s3Client, command, { expiresIn: 15 * 60 }); // expires in seconds
   return url;

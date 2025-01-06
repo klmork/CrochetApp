@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Box, Text } from "@chakra-ui/react";
 import { SkeinProps, Skein } from "../components/Skeins/skein.tsx";
 const Skeins = () => {
   const [skeins, setSkeins] = useState<SkeinProps[]>([]);
@@ -12,8 +11,7 @@ const Skeins = () => {
         setSkeins(skeins);
       });
   }, []);
-  console.log("skeins", skeins);
-  //   console.log("id", skeins[0]._id, skeins[1]._id);
+
   return (
     <div className="container">
       <h1>My Yarn</h1>

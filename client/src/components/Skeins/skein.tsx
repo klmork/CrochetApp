@@ -31,9 +31,7 @@ export interface SkeinProps {
 }
 
 export const Skein: React.FC<SkeinProps> = ({ _doc, imageUrl }) => {
-  console.log("image", imageUrl);
   const { _id, color, brand, description } = _doc;
-  console.log("_id", _id);
   return (
     <Box
       key={_id}

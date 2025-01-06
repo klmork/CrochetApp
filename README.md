@@ -21,7 +21,7 @@ Most of the setup steps are complete:
 - Set up DB
 - Simple endpoint for getting yarn skeins (first collection we will work with)
 - Set up S3 bucket for images
-- Dislpay skeins in the UI (getting data from server and images from S3 urls)
+- Dislpay skeins in the UI (getting data from our endpoint and images from S3 urls)
 
 Remaining setup tasks:
 - CI/CD pipeline

@@ -1,20 +1,18 @@
-import { useState, useEffect } from "react";
 import "./App.css";
+import Home from "./pages/home";
+import Skeins from "./pages/skeins";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/ui/Navbar/Navbar";
 
 function App() {
-  const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    fetch("http://localhost:8000/message")
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message));
-  }, []);
-
   return (
-    <div className="App">
-      <h1>Testing</h1>
-      <h1>{message}</h1>
-    </div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/yarn" element={<Skeins />} />
+      </Routes>
+    </Router>
   );
 }
 

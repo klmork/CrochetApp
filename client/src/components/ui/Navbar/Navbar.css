@@ -1,0 +1,32 @@
+/* Navbar styles */
+nav {
+  background-color: #55b5a6; /* Set navbar background color */
+  padding: 10px 20px;
+}
+
+a {
+  color: #fff; /* Default link color */
+  text-decoration: none;
+  font-weight: 500;
+  margin: 0 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+a:hover {
+  color: #ffbb00; /* Hover color */
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Active link styling */
+.active-link {
+  color: #ffbb00; /* Active link color */
+  font-weight: 600; /* Make the active link bold */
+  border-bottom: 2px solid #ffbb00; /* Underline active link */
+}
+
+/* Optional: Navbar item layout */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

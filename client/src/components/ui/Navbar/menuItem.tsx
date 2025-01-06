@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { Button } from "@chakra-ui/react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 interface MenuItemProps {
   label: string;
@@ -8,11 +8,12 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ label, to }) => {
   return (
-    <Link to={to} style={{ textDecoration: "none" }}>
-      <Button p={[2, 4, 6]} color="white" fontSize="xl">
-        {label}
-      </Button>
-    </Link>
+    <NavLink
+      to={to}
+      className={({ isActive }) => (isActive ? "active-link" : "")}
+    >
+      {label}
+    </NavLink>
   );
 };
 

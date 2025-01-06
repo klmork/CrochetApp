@@ -7,11 +7,6 @@ interface IDimensions {
   sizeInMeteres?: number;
 }
 
-interface IColor {
-  brandColorName?: string;
-  color: string;
-}
-
 interface IWeight {
   weight: number;
   description: 'medium' | 'light' | 'heavy';

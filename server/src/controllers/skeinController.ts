@@ -1,13 +1,28 @@
 import { Skein, ISkein } from '../models/skeinModel';
 import { Request, Response } from 'express';
+import { getSignedUrlFromS3 } from '../aws/s3Service';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+const bucketName: string = process.env.S3_BUCKET_NAME || '';
+
+type SkeinWithImageUrl = ISkein & { imageUrl: string };
+
+const getSkeinWithUrl = async (skein: ISkein): Promise<SkeinWithImageUrl> => {
+  const key: string = skein.image || 'skeins/no-image.png';
+  const url: string = await getSignedUrlFromS3(bucketName, key);
+  return { ...skein, imageUrl: url };
+};
 
 export const getAllSkeins = async (req: Request, res: Response) => {
   try {
     const skeins: ISkein[] = await Skein.find();
+    const skeinsWithImageUrl = await Promise.all(skeins.map(getSkeinWithUrl));
     res.status(200).json({
       status: 'success',
-      results: skeins.length,
-      data: { skeins },
+      results: skeinsWithImageUrl.length,
+      data: { skeinsWithImageUrl },
     });
   } catch (err) {
     res.status(404).json({

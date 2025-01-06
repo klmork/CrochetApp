@@ -7,7 +7,9 @@ Documentation can be found [here](https://github.com/klmork/CrochetApp/tree/main
 
 ### The Stack
 
-MERN stack with TypeScript (MongoDB, Express, React, Node.js)
+MERN stack with TypeScript (MongoDB, Express, React, Node.js).
+
+Images stored in S3.
 
 ### Developing
 

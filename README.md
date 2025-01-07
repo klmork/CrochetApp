@@ -16,7 +16,11 @@ Images stored in S3.
 
 The project is just in the starting phase - set up is almost complete, and then we can start iterating!
 
-https://github.com/user-attachments/assets/21fdaf0c-8225-4c03-b6bb-5426b17edb79
+
+
+https://github.com/user-attachments/assets/2208345d-e236-4bda-b91e-d707b1bcf88c
+
+
 
 Most of the setup steps are complete:
 - Set up server

@@ -23,7 +23,7 @@ https://github.com/user-attachments/assets/2208345d-e236-4bda-b91e-d707b1bcf88c
 
 
 Most of the setup steps are complete:
-- Set up server
+- Set up the node server
 - Set up DB
 - Simple endpoint for getting yarn skeins (first collection we will work with)
 - Set up S3 bucket for images

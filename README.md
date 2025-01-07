@@ -27,7 +27,7 @@ Most of the setup steps are complete:
 
 Remaining setup tasks:
 - CI/CD pipeline
-- test suite setup
+- test suite setup (Just have some unit tests on the server side so far)
 
 
 

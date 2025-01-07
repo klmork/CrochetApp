@@ -16,10 +16,7 @@ Checkout package.json for the npm scripts you may want to run.
 
 `npm run lint`
 
-#### Unit Tests
-`npm run test:unit`
-
-### All Tests
+### Run Tests
 `npm test`
 
 ## API Routes

@@ -16,7 +16,9 @@ describe('Getting all skeins', () => {
     jest.clearAllMocks(); // Ensure mocks are cleared between tests
   });
   it('returns empty array when no skeins', async () => {
-    (Skein.find as jest.Mock).mockResolvedValue([]);
+    (Skein.find as jest.Mock).mockImplementationOnce(() => ({
+      lean: jest.fn().mockReturnValue([]),
+    }));
     await getAllSkeins(request, response);
 
     expect(Skein.find).toHaveBeenCalled();

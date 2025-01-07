@@ -17,7 +17,7 @@ const getSkeinWithUrl = async (skein: ISkein): Promise<SkeinWithImageUrl> => {
 
 export const getAllSkeins = async (req: Request, res: Response) => {
   try {
-    const skeins: ISkein[] = await Skein.find();
+    const skeins: ISkein[] = await Skein.find().lean();
     const skeinsWithImageUrl = await Promise.all(skeins.map(getSkeinWithUrl));
     res.status(200).json({
       status: 'success',

@@ -13,7 +13,7 @@ interface Material {
   percent: number;
 }
 
-interface SkeinDoc {
+export interface SkeinProps {
   _id: string;
   color: string;
   description?: string;
@@ -23,15 +23,11 @@ interface SkeinDoc {
   weight?: { weight: number; description: string };
   material?: Material[];
   image?: string;
-}
-
-export interface SkeinProps {
-  _doc: SkeinDoc;
   imageUrl: string;
 }
 
-export const Skein: React.FC<SkeinProps> = ({ _doc, imageUrl }) => {
-  const { _id, color, brand, description } = _doc;
+export const Skein: React.FC<SkeinProps> = (skein: SkeinProps) => {
+  const { _id, color, brand, description, imageUrl } = skein;
   return (
     <Box
       key={_id}

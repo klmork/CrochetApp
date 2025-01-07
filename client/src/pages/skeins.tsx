@@ -15,10 +15,7 @@ const Skeins = () => {
   return (
     <div className="container">
       <h1>My Yarn</h1>
-      {skeins &&
-        skeins.map((skein, i) => (
-          <Skein key={i} _doc={skein._doc} imageUrl={skein.imageUrl} />
-        ))}
+      {skeins && skeins.map((skein, i) => <Skein key={i} {...skein} />)}
     </div>
   );
 };

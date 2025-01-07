@@ -1,6 +1,7 @@
 import { getAllSkeins } from '../../../src/controllers/skeinController';
 import { Skein } from '../../../src/models/skeinModel';
 import { Request, Response } from 'express';
+import { getSignedUrlFromS3 } from '../../../src/aws/s3Service';
 
 jest.mock('../../../src/models/skeinModel');
 jest.mock('../../../src/aws/s3Service');
@@ -29,7 +30,38 @@ describe('Getting all skeins', () => {
       data: { skeinsWithImageUrl: [] },
     });
   });
-  it('returns skeins when skeins', async () => {});
+  it('returns skeins when skeins', async () => {
+    const mockSkeins = [
+      { color: 'Red', image: 'image1.png' },
+      { color: 'Blue', image: 'image2.png' },
+    ];
+    (Skein.find as jest.Mock).mockImplementationOnce(() => ({
+      lean: jest.fn().mockReturnValue(mockSkeins),
+    }));
+
+    (getSignedUrlFromS3 as jest.Mock).mockImplementation(
+      (bucket, key) => `https://mock-s3.com/${key}`,
+    );
+
+    await getAllSkeins(request, response);
+
+    expect(Skein.find).toHaveBeenCalled();
+    expect(getSignedUrlFromS3).toHaveBeenCalledTimes(mockSkeins.length);
+    expect(response.status).toHaveBeenCalledWith(200);
+
+    // Note: mongoose adds _doc property to bundle up the skein data,
+    // but we don't need that in the unit tests
+    expect(response.json).toHaveBeenCalledWith({
+      status: 'success',
+      results: 2,
+      data: {
+        skeinsWithImageUrl: [
+          { ...mockSkeins[0], imageUrl: 'https://mock-s3.com/image1.png' },
+          { ...mockSkeins[1], imageUrl: 'https://mock-s3.com/image2.png' },
+        ],
+      },
+    });
+  });
   it('attaches imageUrl when image included in req', async () => {});
   it('attaches imageUrl when no image included in req', async () => {});
 });

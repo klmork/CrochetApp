@@ -30,6 +30,7 @@ Get all skeins
 #### POST /api/v1/skeins
 Create a skein.
 
+Example skein data:
 Color is the only required field:
 ```
 {
@@ -37,7 +38,7 @@ Color is the only required field:
 }
 ```
 
-Sample input with all fields:
+Sample input with all fields (image is the S3 key)::
 
 ```
 {
@@ -61,7 +62,7 @@ Sample input with all fields:
       "percent": 100
     }
   ],
-  "image": "https://example.com/images/skein-image.jpg"
+  "image": "skeins/gray-super-saver.png"
 }
 ```
 
